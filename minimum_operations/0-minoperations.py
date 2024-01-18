@@ -3,7 +3,18 @@
 
 def minOperations(n):
 
-"""Return 0 if there is only one character 'H'."""
+ """
+    Calculate the fewest number of operations needed to achieve exactly n 'H' characters in a text file.
+
+    Args:
+        n (int): The desired number of 'H' characters.
+
+    Returns:
+        int: The minimum number of operations needed.
+
+    Note:
+        If n is impossible to achieve, the function returns 0.
+    """
 
     if n == 1:
         return 0
