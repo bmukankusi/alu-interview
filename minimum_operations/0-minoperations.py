@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""The function will do a min operation"""
+
 
 def minOperations(n):
     """
