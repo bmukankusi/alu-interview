@@ -9,7 +9,6 @@ Documentation
 def minOperations(n):
     """
     Minimum Operations
-    
     The function called to determine the number of characters.
     """
     # number to increment to n
