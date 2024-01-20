@@ -1,34 +1,39 @@
 #!/usr/bin/python3
-"""The function will do a min operation"""
+"""
+Minimum Operations
+
+Documentation
+"""
 
 
 def minOperations(n):
     """
-    Calculate the fewest number of operations needed to achieve exactly n 'H' characters in a text file.
-
-    Args:
-        n (int): The desired number of 'H' characters.
-
-    Returns:
-        int: The minimum number of operations needed. If n is impossible to achieve, returns 0.
+    Minimum Operations
+    
+    The function called to determine the number of characters.
     """
-    if n == 1:
+    # number to increment to n
+    m = 1
+    # used for increment
+    x = 1
+    # Operations count starts at 1 to account for the initial copy
+    operationsCount = 0
+    i = 1
+    if n <= 0:
         return 0
+    for i in range(n):
+        if (n % m) == 0:
+            x = m
+            operationsCount += 1
+            m = m + x
+            operationsCount += 1
+        else:
+            while (n % m) != 0:
+                m = m + x
+                operationsCount += 1
 
-    # Dynamic programming approach
-    dp = [float('inf')] * (n + 1)
-    dp[1] = 0
-
-    for i in range(2, n + 1):
-        for j in range(1, i):
-            if i % j == 0:
-                dp[i] = min(dp[i], dp[j] + i // j)
-
-    return dp[n] if dp[n] != float('inf') else 0
-
-if __name__ == "__main__":
-    # Example usage:
-    n = 16
-    result = minOperations(n)
-    print(result)
-
+        if m == n:
+            return operationsCount
+        if m > n:
+            return 0
+        i += 1
